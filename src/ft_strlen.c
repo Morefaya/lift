@@ -6,7 +6,7 @@
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/25 15:57:13 by jcazako           #+#    #+#             */
-/*   Updated: 2016/01/26 18:59:31 by jcazako          ###   ########.fr       */
+/*   Updated: 2016/01/27 11:42:44 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 size_t	ft_strlen(const char *str)
 {
+	int	i;
+
 	if (!str)
 		return (0);
+	i = 0;
 	while (str[i])
 	{
 		i++;
