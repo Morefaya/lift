@@ -6,7 +6,7 @@
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:59:32 by jcazako           #+#    #+#             */
-/*   Updated: 2016/02/18 18:18:36 by jcazako          ###   ########.fr       */
+/*   Updated: 2016/02/18 18:44:47 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ void	ft_putstr_right(char *str, int width)
 	len = (int)ft_strlen(str);
 	if ((diff = width - len) >= 0)
 	{
-		while ((diff++))
+		while ((diff--))
 			ft_putchar(' ');
+		ft_putstr(str);
 	}
 	else
 	{

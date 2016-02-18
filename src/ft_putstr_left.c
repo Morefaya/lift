@@ -6,7 +6,7 @@
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/18 17:48:56 by jcazako           #+#    #+#             */
-/*   Updated: 2016/02/18 18:16:54 by jcazako          ###   ########.fr       */
+/*   Updated: 2016/02/18 18:47:03 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	ft_putstr_left(char *str, int width)
 		ft_putchar(*str++);
 		width--;
 	}
-	while (width)
+	while ((width--))
 		ft_putchar(' ');
 }
