@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_lstpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/10/05 22:28:13 by jcazako           #+#    #+#             */
+/*   Updated: 2016/10/05 22:28:15 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+void	ft_lstpush(t_list **lst_a, t_list **lst_b)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (charset[i])
-	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
-	}
-	return (-1);
+	if (!*lst_a)
+		return ;
+	tmp = *lst_b;
+	*lst_b = *lst_a;
+	*lst_a = (*lst_a)->next;
+	(*lst_b)->next = tmp;
 }

@@ -1,27 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_trdelone.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/10/05 22:27:23 by jcazako           #+#    #+#             */
+/*   Updated: 2016/10/05 22:27:24 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+void	ft_trdelone(t_tree **atr, void (*del)(void*, size_t))
 {
-	int	i;
-
-	i = 0;
-	while (charset[i])
-	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
-	}
-	return (-1);
+	if (del && atr)
+		del((*atr)->content, (*atr)->content_size);
+	ft_memdel((void**)atr);
 }

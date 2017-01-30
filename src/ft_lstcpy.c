@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_lstcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/08/13 19:16:16 by jcazako           #+#    #+#             */
+/*   Updated: 2016/08/17 18:00:12 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+t_list	*ft_lstcpy(t_list *lst, size_t c_size)
 {
-	int	i;
+	t_list	*new_cpy;
+	t_list	*tmp;
 
-	i = 0;
-	while (charset[i])
+	if (!lst)
+		return (NULL);
+	if (!(new_cpy = ft_lstnew(lst->content, c_size)))
+		return (NULL);
+	lst = lst->next;
+	while (lst)
 	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
+		tmp = ft_lstnew(lst->content, c_size);
+		ft_lstadd_back(new_cpy, tmp);
+		lst = lst->next;
 	}
-	return (-1);
+	return (new_cpy);
 }

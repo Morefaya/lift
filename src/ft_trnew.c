@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_trnew.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/27 10:36:48 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/09 11:45:04 by jcazako          ###   ########.fr       */
+/*   Created: 2016/10/05 22:27:33 by jcazako           #+#    #+#             */
+/*   Updated: 2016/10/05 22:27:35 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*ft_lstnew(const void *content, size_t content_size)
+t_tree	*ft_trnew(const void *content, size_t content_size)
 {
-	t_list	*new;
+	t_tree	*new;
 
 	if (!content || !content_size)
 		return (NULL);
-	if (!(new = (t_list*)ft_memalloc(sizeof(*new))))
+	if (!(new = (t_tree*)ft_memalloc(sizeof(*new))))
 		return (NULL);
 	if (content)
 	{
@@ -31,6 +31,7 @@ t_list	*ft_lstnew(const void *content, size_t content_size)
 		ft_memcpy(new->content, content, content_size);
 		new->content_size = content_size;
 	}
-	new->next = NULL;
+	new->left = NULL;
+	new->right = NULL;
 	return (new);
 }

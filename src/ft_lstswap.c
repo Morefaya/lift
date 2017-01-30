@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_lstswap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/10/05 22:28:49 by jcazako           #+#    #+#             */
+/*   Updated: 2016/10/05 22:28:50 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+void	ft_lstswap(t_list **lst)
 {
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	while (charset[i])
-	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
-	}
-	return (-1);
+	if (!*lst)
+		return ;
+	else if (!(*lst)->next)
+		return ;
+	tmp = (*lst)->next;
+	(*lst)->next = (*lst)->next->next;
+	tmp->next = *lst;
+	*lst = tmp;
 }

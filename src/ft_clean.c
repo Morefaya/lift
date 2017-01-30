@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_clean.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/27 10:36:48 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/09 11:45:04 by jcazako          ###   ########.fr       */
+/*   Created: 2016/06/04 16:52:27 by jcazako           #+#    #+#             */
+/*   Updated: 2016/06/04 20:12:35 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-t_list	*ft_lstnew(const void *content, size_t content_size)
+char	*ft_clean(char *str)
 {
-	t_list	*new;
+	char	*str_clean;
+	int		nb_wd;
+	int		word_str_len;
+	int		i;
 
-	if (!content || !content_size)
+	i = 0;
+	if (!str)
 		return (NULL);
-	if (!(new = (t_list*)ft_memalloc(sizeof(*new))))
+	nb_wd = ft_wordnb(str);
+	word_str_len = ft_strlen_str(str);
+	if (!(str_clean = ft_strnew(word_str_len + nb_wd - 1)))
 		return (NULL);
-	if (content)
+	while (*str)
 	{
-		if (!(new->content = ft_memalloc(content_size)))
-		{
-			free(new);
-			return (NULL);
-		}
-		ft_memcpy(new->content, content, content_size);
-		new->content_size = content_size;
+		while (*str && ft_check_charset(*str, " \t\n"))
+			str++;
+		while (*str && !ft_check_charset(*str, " \t\n"))
+			str_clean[i++] = *str++;
+		if (*str && i < word_str_len + nb_wd)
+			str_clean[i++] = ' ';
 	}
-	new->next = NULL;
-	return (new);
+	return (str_clean);
 }

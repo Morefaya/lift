@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_lstrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/10/08 16:36:44 by jcazako           #+#    #+#             */
+/*   Updated: 2016/10/08 16:36:45 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+void	ft_lstrev(t_list **lst)
 {
-	int	i;
+	t_list	*trash;
 
-	i = 0;
-	while (charset[i])
+	trash = NULL;
+	while (*lst)
 	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
+		ft_lstrev_rotate(lst);
+		ft_lstpush(lst, &trash);
 	}
-	return (-1);
+	while (trash)
+		ft_lstpush(&trash, lst);
 }

@@ -25,7 +25,14 @@ ft_lstnew.c ft_lstdelone.c ft_lstdel.c \
 ft_lstadd.c ft_lstiter.c ft_lstmap.c \
 ft_putstr_right.c ft_putstr_left.c ft_putendchar.c \
 ft_getnbr.c ft_strisnum.c get_next_line.c \
-ft_select_charset.c
+ft_select_charset.c ft_strstr_split.c ft_lstadd_back.c \
+ft_wordnb.c ft_strlen_str.c ft_clean.c ft_lstcount.c ft_strinsert.c \
+ft_abs.c ft_lstcpy.c ft_lstrotate.c ft_lstrev_rotate.c ft_lstswap.c \
+ft_lstpush.c ft_lsttrans.c ft_trnew.c ft_trdelone.c ft_trdel.c \
+ft_lstdel_addr.c ft_lstdel_range.c ft_lstadd_range.c ft_lstrev.c \
+ft_maxint.c ft_dlstnew.c ft_dlstadd_back.c ft_dlstadd_fow.c \
+ft_dlstdelone.c ft_dlstdel.c ft_dlstcount.c ft_dlstadd_range.c \
+ft_dlstdel_range.c ft_dlstcount_next.c ft_dlstcount_prev.c
 SRC_DIR = ./src
 SRC_C = $(patsubst %, $(SRC_DIR)/%, $(SRC))
 OBJ = $(patsubst %.c, %.o, $(SRC))
@@ -36,7 +43,7 @@ NAME = libft.a
 
 all: $(NAME)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)
 	@$(CC) -c $< -o $@ -I $(HDIR) $(CFLAG)
 
 $(NAME): $(OBJ_DIR) $(OBJ_O)
@@ -44,10 +51,10 @@ $(NAME): $(OBJ_DIR) $(OBJ_O)
 	@echo "\033[32mlibft compiled\033[0m"
 
 $(OBJ_DIR):
-	@mkdir $(OBJ_DIR)
+	@mkdir $@
 
 clean:
-	@rm -rf $(OBJ_O)
+	@rm -rf $(OBJ_O) $(OBJ_DIR)
 	@echo "\033[31mlibft object file removed\033[0m"
 
 fclean: clean

@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_strinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/07/09 16:40:59 by jcazako           #+#    #+#             */
+/*   Updated: 2016/07/09 16:41:11 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+char	*ft_strinsert(char *str, char *insert, size_t pos)
 {
-	int	i;
+	int		len_s;
+	int		len_i;
+	char	*new;
 
-	i = 0;
-	while (charset[i])
+	len_s = 0;
+	len_i = 0;
+	if (!str)
+		return (NULL);
+	else
 	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
+		len_s = ft_strlen(str);
+		if (insert)
+			len_i = ft_strlen(insert);
 	}
-	return (-1);
+	if (!(new = ft_strnew(len_s + len_i)))
+		return (NULL);
+	ft_strncat(new, str, pos);
+	ft_strcat(new, insert);
+	ft_strcat(new, str + pos);
+	return (new);
 }

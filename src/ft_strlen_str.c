@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_strlen_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/06/04 17:12:07 by jcazako           #+#    #+#             */
+/*   Updated: 2016/06/04 19:05:51 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+int	ft_strlen_str(char *str)
 {
-	int	i;
+	int	len;
 
-	i = 0;
-	while (charset[i])
+	len = 0;
+	if (!str)
+		return (0);
+	while (*str)
 	{
-		if (charset[i] == ch)
-			return (i);
-		i++;
+		while (*str && ft_check_charset(*str, " \t\n"))
+			str++;
+		while (*str && !ft_check_charset(*str, " \t\n"))
+		{
+			len++;
+			str++;
+		}
 	}
-	return (-1);
+	return (len);
 }

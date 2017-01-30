@@ -6,7 +6,7 @@
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/27 18:27:44 by jcazako           #+#    #+#             */
-/*   Updated: 2016/02/19 17:49:28 by jcazako          ###   ########.fr       */
+/*   Updated: 2016/11/23 16:01:22 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@
 # define BASE_HEX_B "0123456789ABCDEF"
 # define BASE_OCT "01234567"
 # define BASE_10 "0123456789"
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 
 # include <string.h>
 # include "get_next_line.h"
-
 
 typedef struct		s_list
 {
@@ -28,6 +29,22 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_dlist
+{
+	void		*content;
+	size_t		content_size;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}			t_dlist;
+
+typedef struct		s_tree
+{
+	void			*content;
+	size_t			content_size;
+	struct s_tree	*left;
+	struct s_tree	*right;
+}					t_tree;
 
 void				ft_putchar(char a);
 void				ft_putstr(const char *str);
@@ -84,6 +101,7 @@ char				**ft_strsplit(char const *str, char a);
 t_list				*ft_lstnew(const void *content, size_t content_size);
 void				ft_lstdelone(t_list **alist, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alist, void (*del)(void *, size_t));
+
 void				ft_lstadd(t_list **alist, t_list *new_lst);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *list, t_list *(*f)(t_list *elem));
@@ -98,8 +116,47 @@ int					ft_sqrt(int nb);
 void				ft_putstr_left(char *str, int width);
 void				ft_putstr_right(char *str, int width);
 void				ft_putendstr(char *str, char a);
-int				ft_getnbr(const char *str);
-int				ft_strisnum(const char *str);
-int				ft_select_charset(char ch, const char *charset);
+int					ft_getnbr(const char *str);
+int					ft_strisnum(const char *str);
+int					ft_select_charset(char ch, const char *charset);
+char				**ft_strstr_split(const char *str, char *charset);
+void				ft_lstadd_back(t_list *lst, t_list *n_lst);
+int					ft_wordnb(char *str);
+int					ft_strlen_str(char *str);
+char				*ft_clean(char *str);
+int					ft_lstcount(t_list *lst);
+char				*ft_strinsert(char *str, char *insert, size_t pos);
+int					ft_abs(int a);
+t_list				*ft_lstcpy(t_list *lst, size_t content_size);
+void				ft_lstrotate(t_list **lst);
+void				ft_lstrev_rotate(t_list **lst);
+void				ft_lstswap(t_list **lst);
+void				ft_lstpush(t_list **lst_a, t_list **lst_b);
+void				ft_lsttrans(t_list **lst, int range);
+t_tree				*ft_trnew(const void *content, size_t content_size);
+void				ft_trdelone(t_tree **atr, void (*del)(void*, size_t));
+void				ft_trdel(t_tree **atr, void (*del)(void*, size_t));
+void				ft_lstdel_addr(t_list **lst, t_list *addr, \
+		void(*del)(void*, size_t));
+void				ft_lstdel_range(t_list **lst, int range, \
+		void(del)(void*, size_t));
+void				ft_lstadd_range(t_list **lst, t_list *nouvo, int range);
+void				ft_lstrev(t_list **lst);
+int					ft_maxint(const char *str);
+t_dlist			*ft_dlstnew(const void *content, size_t size);
+void			ft_dlstadd_back(t_dlist *dlst, t_dlist *new_link);
+void			ft_dlstadd_fow(t_dlist **dlst, t_dlist *new_link);
+void				ft_dlstdel_range(t_dlist **dlst, int range, \
+		void(*del)(void*, size_t));
+void				ft_dlstdel_addr(t_dlist **dlst, t_dlist *addr, \
+		void(*del)(void*, size_t));
+void			ft_dlstdelone(t_dlist **adlst, void(*del)(void*, size_t));
+void			ft_dlstdel(t_dlist **adlst, void(*del)(void*, size_t));
+void			ft_dlstadd_range(t_dlist **lst, t_dlist *new_l, int range);
+int			ft_dlstcount(t_dlist *dlst);
+void				ft_dlstdel_range(t_dlist **lst, int range, \
+		void(*del)(void*, size_t));
+int			ft_dlstcount_next(t_dlist *dlst);
+int			ft_dlstcount_prev(t_dlist *dlst);
 
 #endif

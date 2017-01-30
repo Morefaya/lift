@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_select_charset.c                                :+:      :+:    :+:   */
+/*   ft_lstcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/04 17:28:41 by jcazako           #+#    #+#             */
-/*   Updated: 2016/06/04 17:28:56 by jcazako          ###   ########.fr       */
+/*   Created: 2016/06/11 16:17:31 by jcazako           #+#    #+#             */
+/*   Updated: 2016/06/11 16:17:33 by jcazako          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_select_charset(char ch, const char *charset)
+int	ft_lstcount(t_list *lst)
 {
 	int	i;
 
 	i = 0;
-	while (charset[i])
+	while (lst)
 	{
-		if (charset[i] == ch)
-			return (i);
+		lst = lst->next;
 		i++;
 	}
-	return (-1);
+	return (i);
 }
