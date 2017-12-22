@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/*
+**	Return string lenght without spaces, tabs and newlines.
+*/
+
 int	ft_strlen_str(char *str)
 {
 	int	len;
