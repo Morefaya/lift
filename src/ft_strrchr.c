@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Return the last occurrence position of a character in a string.
+*/
+
 #include "libft.h"
 
 char	*ft_strrchr(const char *str, int c)

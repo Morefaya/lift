@@ -10,6 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+** Return the first occurrence position of a character in a string.
+*/
+
 #include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
