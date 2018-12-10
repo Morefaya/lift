@@ -160,5 +160,6 @@ int			ft_dlstcount_next(t_dlist *dlst);
 int			ft_dlstcount_prev(t_dlist *dlst);
 char		*ft_getnextword(char *str);
 int		ft_nextwordlen(char *str);
+char		*ft_strstr_ext(char *str, char *ext);
 
 #endif
