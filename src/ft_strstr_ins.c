@@ -13,7 +13,7 @@ char	*ft_strstr_ins(char *str, char *ins, int start)
 	new = NULL;
 	if (str && ins && start >= 0)
 	{
-		if ((len_str = ft_strlen(str) < start)
+		if ((len_str = ft_strlen(str)) < start)
 			return (NULL);
 		else if (!(len_ins = ft_strlen(ins)))
 			return (ft_strdup(str));

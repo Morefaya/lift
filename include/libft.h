@@ -161,5 +161,6 @@ int			ft_dlstcount_prev(t_dlist *dlst);
 char		*ft_getnextword(char *str);
 int		ft_nextwordlen(char *str);
 char		*ft_strstr_ext(char *str, char *ext);
+char		*ft_strstr_ins(char *str, char *ins, int start);
 
 #endif

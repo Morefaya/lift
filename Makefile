@@ -33,7 +33,8 @@ ft_lstdel_addr.c ft_lstdel_range.c ft_lstadd_range.c ft_lstrev.c \
 ft_maxint.c ft_dlstnew.c ft_dlstadd_back.c ft_dlstadd_fow.c \
 ft_dlstdelone.c ft_dlstdel.c ft_dlstcount.c ft_dlstadd_range.c \
 ft_dlstdel_range.c ft_dlstcount_next.c ft_dlstcount_prev.c \
-ft_getnextword.c ft_nextwordlen.c ft_strstr_ext.c
+ft_getnextword.c ft_nextwordlen.c ft_strstr_ext.c \
+ft_strstr_ins.c
 SRC_DIR = ./src
 SRC_C = $(patsubst %, $(SRC_DIR)/%, $(SRC))
 OBJ = $(patsubst %.c, %.o, $(SRC))
