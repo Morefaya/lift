@@ -19,6 +19,7 @@
 # define BASE_10 "0123456789"
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
+# define DEL_VOID(x) (void(*)(void*, size_t))x 
 
 # include <string.h>
 # include "get_next_line.h"
