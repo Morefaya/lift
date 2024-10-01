@@ -3,7 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_clean.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jcazako <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jcazako <jeancharles.cazako@gmail.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/04 16:52:27 by jcazako           #+#    #+#             */
 /*   Updated: 2016/06/04 20:12:35 by jcazako          ###   ########.fr       */
@@ -38,12 +38,12 @@
 	return (str_clean);
 }*/
 
-char	*ft_clean(char *str)
+char *ft_clean(char *str)
 {
-	char	*str_clean;
-	int		nb_wd;
-	char	*next_word;
-	int		i;
+	char *str_clean;
+	int nb_wd;
+	char *next_word;
+	int i;
 
 	i = 0;
 	if (!str)
